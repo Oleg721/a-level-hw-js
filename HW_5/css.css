@@ -1,7 +1,4 @@
-@font-face {
-    font-family: orgon-light;
-    src: url("fonts/orgon-light.ttf");
-}
+
 
 *{
     box-sizing: border-box;
@@ -20,7 +17,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    font-family: orgon-light;
+
     background: #14303c;
     color: white;
     height: 400px;
