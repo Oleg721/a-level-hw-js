@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1</title>
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+<div class="wrap">
+  <form>
+
+    <div>
+      <input id="sign-up" type="button" value="Sign Up">
+      <input id="log-in" type="button" value="Log In" disabled="disabled">
+    </div>
+
+    <h3>Sign Up for Free</h3>
+
+    <div >
+      <div class="wrap-input">
+        <input type="text" id="first-name" >
+        <label class="placeholder-label" >First Name</label>
+      </div>
+
+      <div class="wrap-input">
+        <input type="text" id="last-name" >
+        <label  class="placeholder-label">Last Name</label>
+      </div>
+
+    </div>
+
+    <div class="wrap-input">
+      <input type="text" id="email" >
+      <label  class="placeholder-label">Email Address</label>
+    </div>
+
+    <div class="wrap-input">
+      <input  type="text" id="password">
+      <label  class="placeholder-label">Set A Password</label>
+    </div>
+
+
+    <input  id="get-started" type="button" value="GET STARTED">
+
+  </form>
+
+</div>
+<div id="out">
+
+</div>
+
+
+<script>
+    function validate() {
+        let out = document.getElementById("out");
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+
+        document.getElementById("name").style["color"] = "blue"
+
+        console.log(document.getElementById("name"));
+        console.log(email);
+
+
+        if (name.length === 0) {
+            out.innerText = "dont enter name";
+            return
+        }
+
+        if (email.includes(" ")) {
+            out.innerText = "name must not contain spaces";
+            return;
+        }
+
+        if (name.length < 6) {
+            out.innerText = "name too short";
+            return;
+        }
+
+        if (email.length === 0) {
+            out.innerText = "dont enter email";
+            return;
+        } else if (!email.includes("@") || email.split(".")[1].length < 3 || email.split(".")[1].length > 1) {
+            out.innerText = "email incorrect";
+            return;
+        }
+
+
+        if (name.includes(" ")) {
+            out.innerText = "name must not contain spaces";
+        }
+
+
+        out.innerText = "its ok"
+
+    }
+
+    /*        document.getElementById("send").onclick = validate;*/
+
+
+
+
+    /*    document.getElementsByTagName("form")[0].style["background"] = "#94303c";*/
+    document.styleSheets;
+
+    let a = "form {\n" +
+        "    font-family: OrgonLight;" +
+        "    background: #14303c;" +
+        "    color: white;" +
+        "    height: 400px;" +
+        "    width: 400px;" +
+        "}"
+
+
+    function f1() {
+        let orgon = new FontFace("orgonl", " url(fonts/orgon-light.ttf)");
+        document.fonts.add(orgon)
+        document.getElementsByTagName("form")[0].style["font-family"] = "orgonl";
+    }
+
+/*add an event to the label, when clicked, which goes into focus*/
+    let phArr =  document.getElementsByClassName("placeholder-label");
+
+    function phOnclick(phArr){
+
+        let l = phArr.length;
+        for (let i = 0; i < l; i++) {
+            phArr[i].onclick = (a)=>{
+                a.target.previousElementSibling.focus()
+                }
+        }
+    }
+    phOnclick(phArr);
+    /* END add an event to the label, when clicked, which goes into focus*/
+
+
+    function t(){
+
+        console.log(document.querySelector(".wrap-input > input[type=text] + label"))
+    }
+
+    t();
+    console.log(document);
+    setTimeout(f1, 1000);
+
+
+
+</script>
+</body>
+</html>
