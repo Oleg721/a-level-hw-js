@@ -17,8 +17,8 @@
 
     <h3>Sign Up for Free</h3>
 
-    <div >
-      <div class="wrap-input">
+    <div>
+      <div class="wrap-input div-name">
         <input type="text" id="first-name" >
         <label class="placeholder-label" >First Name</label>
       </div>
@@ -96,43 +96,34 @@
 
     }
 
-    /*        document.getElementById("send").onclick = validate;*/
 
 
-
-
-    /*    document.getElementsByTagName("form")[0].style["background"] = "#94303c";*/
-    document.styleSheets;
-
-    let a = "form {\n" +
-        "    font-family: OrgonLight;" +
-        "    background: #14303c;" +
-        "    color: white;" +
-        "    height: 400px;" +
-        "    width: 400px;" +
-        "}"
-
-
+/*add font*/
     function f1() {
         let orgon = new FontFace("orgonl", " url(fonts/orgon-light.ttf)");
         document.fonts.add(orgon)
         document.getElementsByTagName("form")[0].style["font-family"] = "orgonl";
     }
+    /*END add font*/
 
 /*add an event to the label, when clicked, which goes into focus*/
-    let phArr =  document.getElementsByClassName("placeholder-label");
-
-    function phOnclick(phArr){
-
+    function phOnclick(){
+        let phArr =  document.getElementsByClassName("placeholder-label");
         let l = phArr.length;
         for (let i = 0; i < l; i++) {
             phArr[i].onclick = (a)=>{
-                a.target.previousElementSibling.focus()
-                }
+                a.target.previousElementSibling.focus();
+            }
+            phArr[i].previousElementSibling.onblur = function(a){
+                if(a.target.value !== "")
+                    a.target.nextElementSibling.style.opacity = "0"
+                else a.target.nextElementSibling.style.opacity = "1";
+            }
         }
     }
-    phOnclick(phArr);
+    phOnclick();
     /* END add an event to the label, when clicked, which goes into focus*/
+
 
 
     function t(){

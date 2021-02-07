@@ -67,7 +67,7 @@ form *[type="button"]:disabled{
     color: #a4aead;
 }
 
-#first-name{
+.div-name {
     margin-right: 1rem;
 }
 
