@@ -25,9 +25,9 @@ function boundedEnum(context) {
 
         for (let i in obj) {
             if (obj.hasOwnProperty(i))
-                countries.push(i);
-            return countries;
+                countries.push(obj[i]);
         }
+        return countries;
     }
 
     function isIterable(obj) {
@@ -46,7 +46,6 @@ function myfunc() {
 }
 
 myfunc("hello", {a: 3, b: 4}, [1, 2, 3, 4, 5], new Set([1, 2, 3, 4]));
-
 
 
 
